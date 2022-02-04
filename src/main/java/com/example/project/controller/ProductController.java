@@ -30,39 +30,39 @@ public class ProductController {
 	
 	
 	
-    @RequestMapping(value = "/productList", method = RequestMethod.GET)
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
     public List<Product> Get() {
         return productService.getProduct();
     }
     
-    @RequestMapping(value = "/findProduct/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
     public ResponseEntity<Product> GetById(@PathVariable(value = "id") int id)
     {
         return productService.getProductById(id);
     }
 
-    @RequestMapping(value = "/createProduct", method =  RequestMethod.POST)
-    public Product Post(@Valid Product product)
+    @RequestMapping(value = "/product", method =  RequestMethod.POST)
+    public Product Post(@Valid @RequestBody Product product)
     {
-    	product.setBrand("Apple");
-    	product.setName("Iphone");
-    	product.setQuantity(10);
-    	product.setPrice(10000);
+//    	product.setBrand("Apple");
+//    	product.setName("Iphone");
+//    	product.setQuantity(10);
+//    	product.setPrice(10000);
         return productService.createProduct(product);
     }
 
-    @RequestMapping(value = "/updateProduct/{id}", method =  RequestMethod.PUT)
-    public ResponseEntity<Product> Put(@PathVariable(value = "id") int id, @Valid Product newProduct)
+    @RequestMapping(value = "/product/{id}", method =  RequestMethod.PUT)
+    public ResponseEntity<Product> Put(@PathVariable(value = "id") int id, @Valid @RequestBody Product newProduct)
     {
-    	newProduct.setBrand("Apple");
-    	newProduct.setName("Iphone");
-    	newProduct.setQuantity(10);
-    	newProduct.setPrice(10000);
+//    	newProduct.setBrand("Apple");
+//    	newProduct.setName("Iphone");
+//    	newProduct.setQuantity(10);
+//    	newProduct.setPrice(10000);
         
     	return productService.updateProduct(newProduct);
     }
 
-    @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> Delete(@PathVariable(value = "id") int id)
     {
     	return productService.deleteProduct(id);
