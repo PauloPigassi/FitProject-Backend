@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 
 
 @Entity
-@Table(name = "TbUser")
+@Table(name = "tbUser")
 public class User implements Serializable {
 	/**
 	 * 
